@@ -1,0 +1,21 @@
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.searchContainer input {
+    border: none;
+    font-size: 17px;
+    padding-left: 4px;
+    border-radius: 3px;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.searchContainer button {
+    display: flex;
+    border-radius: 3px;
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+}

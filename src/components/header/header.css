@@ -1,0 +1,28 @@
+.topPanel {
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: #e9e9e9;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 2px 2px rgba(100, 100, 100, 0.49);
+    width: 100%;
+    z-index: 99999;
+}
+
+.topPanel img {
+    width: 50px;
+    height: 50px;
+}
+
+.topPanel .flex {
+    align-items: center;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 710px) {
+    .topPanel span:first-child {
+        display: none;
+    }
+}

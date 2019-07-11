@@ -1,0 +1,13 @@
+.photosContainer {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+    padding: 10px;
+}
+
+.photoEmptyState {
+    grid-column-start: 2;
+    grid-row-end: 5;
+}
