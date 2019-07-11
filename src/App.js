@@ -69,7 +69,7 @@ export default class App extends React.Component {
     }
     
 
-    axios.post('http://localhost:5000/searchPhotos', requestObj)
+    axios.post('/searchPhotos', requestObj)
     .then((response) => {
       if(response.data.length > 0) {
         if(nextPage) {
