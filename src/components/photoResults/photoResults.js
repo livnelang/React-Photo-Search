@@ -27,10 +27,24 @@ export default class PhotoResults extends PureComponent {
     };
   }
 
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.photos.length === 0) {
+  //     this.setState({ empty: true });  
+  //   }
+  // }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.photos.length === 0){
+      this.setState({ empty: true });  
+    }
+  }
+
+
   render() {
     return (
         <div className="photosContainer">
-          <PhotosEmptyState empty={this.state.empty} />
+          <PhotosEmptyState key={this.state.empty} empty={this.state.empty} />
           { this.props.photos.map(function(item, index) {
                 return <Photo key={index} 
                               value={item} 

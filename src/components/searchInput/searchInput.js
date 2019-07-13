@@ -4,18 +4,10 @@ import { FaSearch } from 'react-icons/fa';
 
 
 export default class SearchInput extends PureComponent {
-  constructor(props) {
-    super();
-    this.state = {value: ''};
-  }
   
   handleClick() {
-    this.props.textChange(this.state.value);
+    this.props.textChange(this.searchText.value);
   }
-
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
-  };
 
   handleKeyPress = (event) => {
     if(event.key === 'Enter'){
@@ -23,12 +15,15 @@ export default class SearchInput extends PureComponent {
     }
   }
 
+  clear() {
+    this.searchText.value = '';
+  }
+
   render() {
     return (
         <div className="searchContainer">
           <input type="text" placeholder="Search.." 
-              value={this.state.value} 
-              onChange={this.handleChange}
+              ref={input => this.searchText = input}
               onKeyPress={this.handleKeyPress}>
             </input>
           <button type="button" className="btn btn-success" onClick={() => {this.handleClick()}}>
