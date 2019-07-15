@@ -1,30 +1,41 @@
 import React, { PureComponent } from "react";
+import {connect} from "react-redux";
 import './photo.css';
-import Modal from 'react-responsive-modal';
 
-
-export default class Photo extends PureComponent {
-  state = {
-    open: false,
-  };
+ class Photo extends PureComponent {
  
-  onOpenModal = () => {
-    this.setState({ open: true });
-  };
- 
-  onCloseModal = () => {
-    this.setState({ open: false });
+  onImageClick = () => {
+    this.props.setSelectedImage({selected: true, url: this.props.value.url_o});
   };
 
   render() {
     return (
         <div className="photo">
-            <img src={this.props.value.url_o} alt=" " onClick={this.onOpenModal}></img>
-
-            <Modal open={this.state.open} onClose={this.onCloseModal} center showCloseIcon={false} focusTrapped={false} >
-              <img width="420" height="320" src={this.props.value.url_o} alt=""></img>
-            </Modal>  
+            <img src={this.props.value.url_o} alt=" " onClick={this.onImageClick}></img>
         </div>
     );
   }
 }
+
+
+
+
+const mapStateToProps = (state) => {
+  return {
+    selectedImage: state.selectedImage
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSelectedImage: (selectedImage) => {
+      dispatch({
+        type: "SET_SELECTED_IMAGE",
+        payload: selectedImage
+      });
+    }
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Photo);

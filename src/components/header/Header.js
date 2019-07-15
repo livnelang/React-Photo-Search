@@ -9,6 +9,7 @@ export default class Header extends PureComponent {
     super(props);
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.resetImages = this.resetImages.bind(this);
+    this.inputRef = React.createRef();
   }
   
   handleSearchChange(value) {
@@ -17,7 +18,7 @@ export default class Header extends PureComponent {
 
   resetImages() {
     this.props.setEmptyPhotos();
-    this.input1.clear();
+    // this.inputRef.clear();
   };
 
   render() {
@@ -27,7 +28,7 @@ export default class Header extends PureComponent {
           <span>Photo Search Engine </span>
           <img src={logo} alt="Logo"/>
         </div>
-        <SearchInput ref={input1 => this.input1 = input1} textChange={this.handleSearchChange}/>
+        <SearchInput textChange={this.handleSearchChange}/>
       </div>
     );
   }
