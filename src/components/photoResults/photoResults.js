@@ -1,21 +1,7 @@
 import React, { PureComponent } from "react";
 import './photoResults.css';
 import Photo from "../photo/photo";
-import photoAlbum from './photo_album.png';
-
-
-
-function PhotosEmptyState(props) {
-  if (!props.empty) {
-    return null;
-  }
-
-  return (
-    <div className="photoEmptyState">
-      <img width="150" src={photoAlbum} alt="photoAlbum"/>
-    </div>
-  );
-}
+import PhotosEmptyState from '../photoEmptyState/photoEmptyState';
 
 
 export default class PhotoResults extends PureComponent {
@@ -27,11 +13,6 @@ export default class PhotoResults extends PureComponent {
     };
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps.photos.length === 0) {
-  //     this.setState({ empty: true });  
-  //   }
-  // }
 
 
   componentDidUpdate(prevProps, prevState) {
