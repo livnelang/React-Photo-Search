@@ -41,12 +41,12 @@ class App extends React.Component {
       this.props.setEmptyPhotos();
       this.lastTag = tag;
     } else {
-      this.setState({ page: this.props.page + 1 });
+      this.setState({ page: this.state.page + 1 });
     }
 
     var requestObj = {
       tags: this.lastTag,
-      page: this.props.page
+      page: this.state.page
     }
 
     axios.post('/searchPhotos', requestObj)

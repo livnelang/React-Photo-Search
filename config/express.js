@@ -3,6 +3,11 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const Flickr = require("flickrapi");
 
+// dev: load environment vars from file
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 
 //Define the express configuration
 module.exports = function() {
@@ -27,8 +32,8 @@ module.exports = function() {
     });
 
     var flickrOptions = {
-        api_key: "396a0d81bf638603a8c0adb4fe979068",
-        secret: "6e8eed3f55d6c62c"
+        api_key: process.env.flickr_api_key,
+        secret: process.env.flickr_secret
     };
     var flickrAPIObject;
     
