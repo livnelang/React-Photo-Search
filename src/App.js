@@ -18,9 +18,6 @@ class App extends React.Component {
     this.setEmptyPhotos = this.setEmptyPhotos.bind(this);
   }
 
-  componentDidMount() {
-    document.title = "Flickr Gallery";
-  }
 
   loadMorePhotos = () => {
     if(this.lastTag) {
