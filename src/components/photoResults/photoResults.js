@@ -23,7 +23,7 @@ class PhotoResults extends PureComponent {
         }, this)
         }
 
-        <Modal open={this.props.selectedImage.selected} onClose={this.onCloseModal} center showCloseIcon={false} focusTrapped={false} >
+        <Modal classNames={{modal: 'photoModalBox'}} open={this.props.selectedImage.selected} onClose={this.onCloseModal} center showCloseIcon={false} focusTrapped={false} >
           <img width="420" height="320" src={this.props.selectedImage.url} alt=""></img>
         </Modal>
       </div>
